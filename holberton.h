@@ -13,4 +13,6 @@ typedef struct formats
 
 int _printf(const char *format, ...);
 int _putchar(char);
+int print_my_binary(va_list ap);
+int my_binary(unsigned int n, int lenght);
 #endif
