@@ -14,14 +14,10 @@ int _printf(const char *format, ...)
 	fmt array[] = {
 		{'%', modulo},
 		{'c', character},
-<<<<<<< HEAD
-		{'s', strings}
-=======
 		{'s', strings},
 		{'d', numero},
 		{'i', numero},
 		{'\0', NULL}
->>>>>>> develop
 	};
 
 	va_start(ap, format);
@@ -32,11 +28,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-<<<<<<< HEAD
-			for (j = 0; j < 4; j++)
-=======
 			for (j = 0; j < 6; j++)
->>>>>>> develop
 			{
 				if (format[i + 1] == array[j].cmp)
 				{
