@@ -52,3 +52,40 @@ int print_pctg(va_list ap, char *buffer, int bsize)
 	buffer[bsize] = '%';
 	return (1);
 }
+
+/**
+ * print_int - adds a string of int to buffer.
+ * @ap: list of arguments to receive.
+ * @buffer: buffer storage.
+ * @bsize: buffer counter.
+ * Return: ammount added to buffer.
+ */
+
+int print_int(va_list ap, char *buffer, int bsize)
+{
+	long int a = va_arg(ap, int), b = 0;
+	long int temp = a, itos = 0;
+
+	if (a < 0)
+	{
+		temp = a *= -1;
+		buffer[bsize] = '-';
+		b++;
+	}
+
+	while (temp / 10 > 0)
+	{
+		temp = temp / 10;
+		b++;
+	}
+	itos = b;
+	while (a / 10 > 0)
+	{
+		buffer[bsize + b] = a % 10 + '0';
+		a = a / 10;
+		b--;
+	}
+	buffer[bsize + b] = a % 10 + '0';
+	itos++;
+	return (itos);
+}

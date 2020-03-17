@@ -19,6 +19,7 @@ typedef struct function_caller
 int print_char(va_list, char *, int);
 int print_string(va_list, char *, int);
 int print_pctg(va_list, char *, int);
+int print_int(va_list, char *, int);
 int _printf(const char *format, ...);
 
 #endif
