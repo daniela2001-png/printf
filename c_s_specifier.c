@@ -47,3 +47,50 @@ int modulo(va_list ap, char *p, int n)
 	p[n] = 37;
 	return (1);
 }
+/**
+ * numero - printf ints and decimals
+ * @ap: list of arguments
+ * @p: pointer to buffer
+ * @n: count to return
+ * Return: int or count
+ */
+int numero(va_list ap, char *p, int n)
+{
+	int a = va_arg(ap, int), b = 0, c = a, tmp;
+
+	if (a >= 0)
+	{
+		while ((c / 10) > 0)
+		{
+			b++;
+			c = (c / 10);
+		}
+		b++;
+		tmp = b;
+		while (b > 0)
+		{
+			p[n + b - 1] = (a % 10) + '0';
+			b--;
+			a = (a / 10);
+		}
+	}
+
+	else if (a < 0)
+	{
+		while ((c / 10) > 0)
+		{
+			b++;
+			c = (c / 10);
+		}
+		b++;
+		tmp = b;
+		while (b > 0)
+		{
+			p[n + b - 1] = (-a % 10) + '0';
+			b--;
+			a = (-a / 10);
+		}
+	}
+	n += tmp;
+	return (tmp);
+}
