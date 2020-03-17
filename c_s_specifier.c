@@ -9,6 +9,7 @@
 int character(va_list ap, char *p, int n)
 {
 	char c = va_arg(ap, int);
+
 	p[n] = c;
 	return (1);
 }
