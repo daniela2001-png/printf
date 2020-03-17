@@ -8,10 +8,10 @@
  */
 int character(va_list ap, char *p, int n)
 {
-  char c;
+	char c;
 
-  c = va_arg(ap, int);
-  p[n] = c;
+	c = va_arg(ap, int);
+	p[n] = c;
 	return (1);
 }
 /**
@@ -23,12 +23,12 @@ int character(va_list ap, char *p, int n)
  */
 int strings(va_list ap, char *p, int n)
 {
-  char *string;
-  int i = 0;
+	char *string;
+	int i = 0;
 
-  string = va_arg(ap, char*);
+	string = va_arg(ap, char*);
 
-  for (i = 0; string[i]; i++)
+	for (i = 0; string[i]; i++)
 	{
 	p[n + i] = string[i];
 	}
@@ -45,5 +45,5 @@ int modulo(va_list ap, char *p, int n)
 {
 	(void) ap;
 	p[n] = '%';
-	return(1);
+	return (1);
 }

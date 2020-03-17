@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, w = 0, buffercounter = 0;
 	char *buffer = malloc(2048);
 
-	fmt array[]= {
+	fmt array[] = {
 		{'%', modulo},
 		{'c', character},
 		{'s', strings}
@@ -24,10 +24,8 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-
 			for (j = 0; j < 4; j++)
 			{
-
 				if (format[i + 1] == array[j].cmp)
 				{
 					w = array[j].f(ap, buffer, buffercounter);
