@@ -11,9 +11,10 @@
 
 int print_char(va_list ap, char *buffer, int bsize)
 {
-        int a = va_arg(ap, int);
-        buffer[bsize] = a;
-        return (1);
+	int a = va_arg(ap, int);
+
+	buffer[bsize] = a;
+	return (1);
 }
 
 /**
@@ -26,15 +27,15 @@ int print_char(va_list ap, char *buffer, int bsize)
 
 int print_string(va_list ap, char *buffer, int bsize)
 {
-        int it;
-        char *str;
+	int it;
+	char *str;
 
-        str = va_arg(ap, char *);
-        if (str == NULL)
-                str = "(null)";
-        for (it = 0; str[it] != '\0'; it++, bsize++)
-                buffer[bsize] = str[it];
-        return (it);
+	str = va_arg(ap, char *);
+	if (str == NULL)
+		str = "(null)";
+	for (it = 0; str[it] != '\0'; it++, bsize++)
+		buffer[bsize] = str[it];
+	return (it);
 }
 
 /**
@@ -47,7 +48,7 @@ int print_string(va_list ap, char *buffer, int bsize)
 
 int print_pctg(va_list ap, char *buffer, int bsize)
 {
-        (void) ap;
-        buffer[bsize] = '%';
-        return (1);
+	(void) ap;
+	buffer[bsize] = '%';
+	return (1);
 }
