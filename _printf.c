@@ -1,48 +1,52 @@
 #include "holberton.h"
+
 /**
- * _printf - prints according to format
- * @format: pointer to a string
- * Return: type select
+ * _printf - pseudo printf function.
+ * @format: the ammount of arguments to receive.
+ * Return: ammount of printed characters.
  */
 int _printf(const char *format, ...)
 {
-	va_list ap;
-	int i = 0, j = 0, w = 0, buffercounter = 0;
-	char *buffer = malloc(2048);
+        va_list ap;
+        char *buffer = malloc(1024);
 
-	fmt array[] = {
-		{'%', modulo},
-		{'c', character},
-		{'s', strings}
-	};
+        int a = 0, b;
+        unsigned int buffcount = 0, *size = 0;
 
-	va_start(ap, format);
+        opt funcall[] = {
+                {'c', print_char},
+                {'s', print_string},
+                {'%', print_pctg},
+                {'\0', NULL}
+        };
 
-	if (format == NULL)
-		return (0);
-	for (i = 0; format[i]; i++)
-	{
-		if (format[i] == '%')
-		{
-			for (j = 0; j < 4; j++)
-			{
-				if (format[i + 1] == array[j].cmp)
-				{
-					w = array[j].f(ap, buffer, buffercounter);
-					buffercounter += w;
-					w = 0;
-					i++;
-				}
-			}
-		}
-		else
-		{
-			buffer[buffercounter] = format[i];
-			buffercounter++;
-		}
-	}
-	buffer[buffercounter] = '\0';
-	write(1, buffer, buffercounter);
-	free(buffer);
-	return (buffercounter);
+        size = &buffcount;
+        va_start(ap, format);
+
+        while (format[a])
+        {
+                if (format[a] == '%')
+                {
+                        a++;
+                        b = 0;
+                        while (funcall[b].s)
+                        {
+                                if (format[a] == funcall[b].s)
+                                {
+                                        funcall[b].f(ap, buffer, size);
+                                }
+                                b++;
+                        }
+                }
+                else
+                {
+                        buffer[*size] = format[a];
+                        *size = *size + 1;
+                }
+                a++;
+        }
+        write(1, buffer, *size);
+        va_end(ap);
+        free(buffer);
+        return (*size);
 }

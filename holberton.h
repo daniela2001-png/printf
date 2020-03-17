@@ -2,22 +2,26 @@
 #define HOLBERTON_H
 
 #include <stdio.h>
-#include <stdarg.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <stdarg.h>
+
 /**
- * struct formats - struct formats
- * @cmp: option to select
- * @f:pointer to a function
- * Return:nothing
+ * struct options - creates he structure to call functions.
+ * @s: defines the parameter to call the function.
+ * @f: stores the names of functions to call.
  */
-typedef struct formats
+
+typedef struct options
 {
-	char cmp;
-	int(*f)(va_list, char *, int);
-} fmt;
+        char s;
+
+        void (*f)(va_list, char *, unsigned int *);
+} opt;
+
 int _printf(const char *format, ...);
-int character(va_list ap, char *p, int n);
-int strings(va_list ap,  char *p, int n);
-int modulo(va_list ap, char *p, int n);
+void print_char(va_list data, char *buffer, unsigned int *size);
+void print_string(va_list data, char *buffer, unsigned int *size);
+void print_pctg(va_list data, char *buffer, unsigned int *size);
+
 #endif
