@@ -56,29 +56,29 @@ int modulo(va_list ap, char *p, int n)
  */
 int numero(va_list ap, char *p, int n)
 {
-	int a = va_arg(list, int), b = 0;
+	int a = va_arg(ap, int), b = 0;
 	int tmp = a, c = 0;
 
 	if (a < 0)
 	{
 		tmp = a *= -1;
-		p[g] = '-';
+		p[n] = '-';
 		b++;
 	}
 
-	while (aux / 10 > 0)
+	while (tmp / 10 > 0)
 	{
 		tmp = tmp / 10;
 		b++;
 	}
-	retorno = i;
+	c = b;
 	while (a / 10 > 0)
 	{
-		p[g + b] = a % 10 + '0';
+		p[n + b] = a % 10 + '0';
 		a = a / 10;
 		b--;
 	}
-	p[g + b] = a % 10 + '0';
+	p[n + b] = a % 10 + '0';
 	c++;
 	return (c);
 }
