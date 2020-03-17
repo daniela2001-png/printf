@@ -1,27 +1,50 @@
 #include "holberton.h"
 /**
  * _printf - prints according to format
- * @format: the given format
- * Return: success 1
+ * @format: pointer to a string
+ * Return: type select
  */
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i = 0, lenght = 0;
+	int i = 0, j = 0, w = 0, buffercounter = 0;
+	char *buffer = malloc(2048);
 
-	if (format == NULL || (format[0] == '%' && !format[1]))
-		return (-1);
+	fmt array[]= {
+		{'%', modulo},
+		{'c', character},
+		{'s', strings}
+	};
+
 	va_start(ap, format);
+
+	if (format == NULL)
+		return (0);
 	for (i = 0; format[i]; i++)
 	{
 		if (format[i] == '%')
 		{
-			lenght += get_printf_funct(format[i + 1], ap);
-			i++;
+
+			for (j = 0; j < 4; j++)
+			{
+
+				if (format[i + 1] == array[j].cmp)
+				{
+					w = array[j].f(ap, buffer, buffercounter);
+					buffercounter += w;
+					w = 0;
+					i++;
+				}
+			}
 		}
 		else
-			lenght += _putchar(format[i]);
+		{
+			buffer[buffercounter] = format[i];
+			buffercounter++;
+		}
 	}
-	va_end(ap);
-	return (lenght);
+	buffer[buffercounter] = '\0';
+	write(1, buffer, buffercounter);
+	free(buffer);
+	return (buffercounter);
 }
