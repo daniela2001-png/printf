@@ -11,10 +11,11 @@
  * @f:pointer to a function
  * Return:nothing
  */
+
 typedef struct formats
 {
 	char cmp;
-	int(*f)(va_list, char *, int);
+	int (*f)(va_list, char *, int);
 } fmt;
 int _printf(const char *format, ...);
 int character(va_list ap, char *p, int n);
