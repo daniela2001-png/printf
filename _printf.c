@@ -6,9 +6,10 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list ap;
 	int i = 0, j = 0, w = 0, buffercounter = 0;
 	char *buffer = malloc(2048);
+
+	va_list ap;
 
 	fmt array[] = {
 		{'%', modulo},

@@ -20,4 +20,5 @@ int _printf(const char *format, ...);
 int character(va_list ap, char *p, int n);
 int strings(va_list ap,  char *p, int n);
 int modulo(va_list ap, char *p, int n);
+
 #endif
