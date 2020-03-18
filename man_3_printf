@@ -3,4 +3,77 @@
 .B _printf
 - formatted output for printing data
 .SH SYNOPSIS
-.B #include 
+.B #include \(dqholberton.h\(dq
+.sp
+.B int _printf(const char *format, ...);
+.sp
+.B int print_char(va_list, char *, int);
+.sp
+.B int print_string(va_list, char *, int);
+.sp
+.B int print_pctg(va_list, char *, int);
+.sp
+.B int print_int(va_list, char *, int);
+.sp
+.B int print_bi(va_list, char *, int);
+.sp 
+.SH DESCRIPTION
+
+_printf is a function that, using a buffer, recognizes and prints characters, strings, integers, decimals and converts numbers to binary. 
+It takes a variable number of arguments and, according to specific syntax (mostly by recognising the '%'operand before certain contextual letters) decides how best to replace the content of variables that are to be printed. 
+The function also works with a fixed amount of memory (1024) and will free that memory after the printing process has finished.
+
+.B Format string
+
+A format string that can contain any character.
+
+.B Conversion specifiers
+
+Specify the data type of the variable that its going to be printed.
+
+.B i, d
+ 
+- Prints a integer and decimals arguments
+
+.B c
+
+- print a character
+
+.B s
+
+- print a string
+
+.B %
+
+- An espace sequence for the character %.
+
+.SH RETURN VALUE
+ 
+ Upon successful return, these functions return the number of characters
+ printed (excluding the null byte used to end output to strings).
+ 
+ Also, if an output error is encountered, a negative value is returned.
+
+.SH NOTES
+_printf depends of system call write() which is implemented throught a custom printing function: _putchar.
+
+.SH BUGS
+No known bugs. If any bug is detected, please do not hesitate to open an issue.
+
+.SH EXAMPLE
+
+To print a string :
+
+#include \(dqholberton.h\(dq
+int main 
+{
+
+_printf("%s\n", 'Hello World');
+ 
+ return (0);
+ 
+}
+
+.SH AUTHORS
+
+Written by Daniela Morales and Christian Campos.
