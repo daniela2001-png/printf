@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 			 {"d", print_int}, {"i", print_int}, {"b", print_bi}, {NULL, NULL}};
 
 	buffer = malloc(1024);
-	if (format == NULL)
+	if (format == NULL || buffer == NULL)
 		return (-1);
 
 	va_start(ap, format);
