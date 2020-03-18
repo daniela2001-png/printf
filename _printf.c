@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	char *buffer;
 	va_list ap;
 	fcall funcs[] = {{"c", print_char}, {"s", print_string}, {"%", print_pctg}, 
-			 {"d", print_int}, {"i", print_int}, {NULL, NULL}};
+			 {"d", print_int}, {"i", print_int}, {"b", print_bi}, {NULL, NULL}};
 
 	buffer = malloc(1024);
 	if (format == NULL)
