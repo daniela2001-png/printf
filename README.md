@@ -42,8 +42,10 @@ In this project we implement our printf function as the **first macro project**,
 
 ------------
 
-**1. ** Write function that produces output  with conversion specifiers **c**, **s**, and **%**.
+**1.** Write function that produces output  with conversion specifiers **c**, **s**, and **%**.
+
 **2.** Handle conversion specifiers **d**, **i**.
+
 **3.** Create a **man page** for your function.
 
 ------------
