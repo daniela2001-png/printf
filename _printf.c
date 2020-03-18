@@ -1,49 +1,46 @@
 #include "holberton.h"
+
 /**
- * _printf - prints according to format
- * @format: pointer to a string
- * Return: type select
+ * _printf - pseudo printf function.
+ * @format: ammount of parameters received.
+ * Return: length of buffer.
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0, w = 0, buffercounter = 0;
-	char *buffer = malloc(2048);
-
+	int fcount, bsize = 0, a, holder = 0;
+	char *buffer;
 	va_list ap;
+	fcall funcs[] = {{"c", print_char}, {"s", print_string}, {"%", print_pctg}, 
+			 {"d", print_int}, {"i", print_int}, {"b", print_bi}, {NULL, NULL}};
 
-	fmt array[] = {
-		{'%', modulo},
-		{'c', character},
-		{'s', strings}
-	};
+	buffer = malloc(1024);
+	if (format == NULL || buffer == NULL)
+		return (-1);
 
 	va_start(ap, format);
-
-	if (format == NULL)
-		return (0);
-	for (i = 0; format[i]; i++)
+	for (fcount = 0; format[fcount] != '\0'; fcount++)
 	{
-		if (format[i] == '%')
+		if (format[fcount] != '%')
 		{
-			for (j = 0; j < 4; j++)
-			{
-				if (format[i + 1] == array[j].cmp)
-				{
-					w = array[j].f(ap, buffer, buffercounter);
-					buffercounter += w;
-					w = 0;
-					i++;
-				}
-			}
+			buffer[bsize] = format[fcount];
+			bsize++;
 		}
 		else
-		{
-			buffer[buffercounter] = format[i];
-			buffercounter++;
-		}
+			if (format[fcount + 1] != '\0')
+			{
+				for (a = 0; funcs[a].n; a++)
+				{
+					if (format[fcount + 1] == funcs[a].n[0])
+					{
+						holder = funcs[a].f(ap, buffer, bsize);
+						fcount++;
+						break;
+					}
+				}
+				bsize = bsize + holder;
+			}
 	}
-	buffer[buffercounter] = '\0';
-	write(1, buffer, buffercounter);
-	free(buffer);
-	return (buffercounter);
+	write(1, buffer, bsize);
+	free(buffer), va_end(ap);
+	return (bsize);
 }
