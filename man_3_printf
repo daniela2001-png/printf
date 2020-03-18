@@ -1,0 +1,6 @@
+.TH man 3 "17 March 2020 "
+.SH NAME
+.B _printf
+- formatted output for printing data
+.SH SYNOPSIS
+.B #include 
