@@ -15,7 +15,7 @@
 ## Description
 
 ------------
-In this project we implement our printf function as the **first macro project**, later in this section. I will give examples of the functions of our **_printf**.
+In this project we implement our printf function as the **first macro project**. Later in this section, I will give examples of the functions of our **_printf**.
 
 ------------
 &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
