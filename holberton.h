@@ -9,7 +9,6 @@
  * struct function_caller - struct to call functions.
  * @n: character to compare with incoming data.
  * @f: body of functions to call.
- *Description: Struc for fmt
  */
 typedef struct function_caller
 {
